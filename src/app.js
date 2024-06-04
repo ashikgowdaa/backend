@@ -6,7 +6,7 @@ import { ApiError } from "./utils/ApiError.js";
 
 
 // USING CLASS BASED COMPONENT
-console.log(new ApiError(400))
+// console.log(new ApiError(400))
 
 // const fist = new ApiResponse(400,[1,2],"APi Connected")
 // console.log(fist)
@@ -24,7 +24,6 @@ app.use(express.json({
     limit:"16kb"
 }));
 // middleware to use url data 
-
 app.use(express.urlencoded({
     limit:'16kb',
     extended:true
@@ -34,5 +33,11 @@ app.use(express.static("public"));
 
 // middleware to use cookie
 app.use(cookieParser());
+
+import userRouter from "./routes/user.route.js";
+
+app.use('/api/users',userRouter);
+
+
 
 export default app;
